@@ -13,13 +13,27 @@
   }
 }
 
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh; /* Adjust the height as needed */
+}
+
+.FormGroup{
+  margin-top: 100px;
+}
+
+.Navbar {
+  background-color: #466193;
+  height: 90px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
