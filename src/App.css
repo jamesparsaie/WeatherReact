@@ -17,11 +17,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh; /* Adjust the height as needed */
+  height: 30vh; /* Adjust the height as needed */
 }
 
 .FormGroup{
   margin-top: 100px;
+}
+
+.divback{
+  background-color: #466193;
 }
 
 .Navbar {
