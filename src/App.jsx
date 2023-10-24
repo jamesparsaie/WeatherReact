@@ -6,6 +6,7 @@ import WeatherData from './Components/WeatherData';
 
 function App() {
   const [coordinates, setCoordinates] = useState({ lat: 0, lon: 0 , name: ''});
+  const [isLoading, setIsLoading] = useState(false);
   //Need to fix this
   const apiKey = "";
   
@@ -13,6 +14,7 @@ function App() {
   const handleFormSubmit = (cityName) => {
     // Make the API request here using cityName and set the coordinates in state.
     console.log(cityName)
+    setIsLoading(true);
     fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${cityName},US&appid=${apiKey}`)
       .then((response) => response.json())
       .then((data) => {
@@ -20,6 +22,7 @@ function App() {
         const lon = data.lon;
         const name = data.name;
         setCoordinates({ lat, lon, name });
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error('API request failed:', error);
@@ -30,9 +33,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Header />
-        <WeatherForm onFormSubmit={handleFormSubmit} />
+        <WeatherForm onFormSubmit={handleFormSubmit} isLoading={isLoading}/>
         <div className='divback' style={{ margin: '0 auto' }}>
-          <WeatherData coordinates={coordinates} />
+          <WeatherData coordinates={coordinates}/>
         </div>
       </header>
     </div>

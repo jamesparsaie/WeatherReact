@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Spinner } from 'react-bootstrap';
 
 function WeatherData(props) {
+
     const [weatherData, setWeatherData] = useState({
         cityName: '',
         weatherDescription: '',
@@ -9,7 +10,7 @@ function WeatherData(props) {
         temperature: 0,
         humidity: 0
     });
-
+    
     //Need to fix this
     const apiKey = '';
 
@@ -39,9 +40,9 @@ function WeatherData(props) {
     }, [props.coordinates.lat, props.coordinates.lon, apiKey, props]);
 
     return (
-        <Card>
-            <Card.Header>Weather Information</Card.Header>
-            <Card.Body>
+        <Card style={{ backgroundColor: '#466193', outline:'1px solid white' }} className='centered'>
+            <Card.Header style={{ backgroundColor: 'white', outline: '2px solid black', marginTop:'5px' }}>Weather Information</Card.Header>
+            <Card.Body style={{color: 'white'}}>
                 {props.coordinates.lat && props.coordinates.lon ? (
                     <Row>
                         <Col>

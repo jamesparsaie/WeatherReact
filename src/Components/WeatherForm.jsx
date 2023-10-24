@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
+import { Card, Form, Button, Alert, Spinner } from 'react-bootstrap';
 
-function WeatherForm({ onFormSubmit }) {
+function WeatherForm({ onFormSubmit, isLoading }) {
   const [stateName, setStateName] = useState('');
+  
   
   const handleInputChange = (e) => {
     setStateName(e.target.value);
@@ -36,6 +37,10 @@ function WeatherForm({ onFormSubmit }) {
           <Button style={{ marginBottom: '10px' }} variant="outline-light" type="submit">
             Submit
           </Button>
+          {isLoading ? 
+          (<Spinner animation="border" variant="light"/>) : 
+          (<></>)
+          }
         </Form>
       </Card>
     </div>
